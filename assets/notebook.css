@@ -1,0 +1,265 @@
+@font-face{font-family:"EB Garamond";src:url("fonts/EBGaramond-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("fonts/EBGaramond-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Kalam";src:url("fonts/Kalam-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Kalam";src:url("fonts/Kalam-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Patrick Hand";src:url("fonts/PatrickHand-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Permanent Marker";src:url("fonts/PermanentMarker-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+
+:root{
+  --ink:#2b221c;
+  --deep:#2a2118;
+  --rust:#8b3a1e;
+  --red:#b01e18;
+  --paper:#f3e4c4;
+  --paper2:#efe0bd;
+  --rule:#c3b7a0;
+  --margin-red:#c45a4a;
+  --line:1.72rem;
+  --gutter:4.4rem;
+  --desk:#e8d7b8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body.book-page{
+  width:794px;height:1123px;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, #f4ead6 0%, #e4d3b0 70%, #d7c19a 100%);
+  color:var(--ink);
+}
+body.book-page.page-2{
+  background:
+    radial-gradient(ellipse at 50% 100%, #f4ead6 0%, #e4d3b0 70%, #d7c19a 100%);
+}
+
+.draft-line{
+  font:italic 600 13px/1.35 "EB Garamond",Georgia,serif;
+  color:var(--rust);
+  text-align:center;
+  margin:0;
+  padding:10px 28px 0;
+}
+.scene{
+  font:italic 400 20px/1.45 "EB Garamond",Georgia,serif;
+  color:#3a2d24;
+  max-width:640px;
+  margin:8px auto 12px;
+  padding:0 36px;
+  text-align:left;
+}
+
+.book-wrap{
+  position:relative;
+  margin:0 28px 0;
+  height:auto;
+}
+body.book-page .book-wrap{margin:0 32px}
+body.book-page.page-1 .book-wrap{height:900px}
+body.book-page.page-2 .book-wrap{margin-top:28px;height:1060px}
+
+.exercise-book{
+  position:relative;
+  background:
+    linear-gradient(90deg,transparent calc(var(--gutter) - 1.5px), var(--margin-red) calc(var(--gutter) - 1.5px), var(--margin-red) var(--gutter), transparent var(--gutter)),
+    repeating-linear-gradient(var(--paper) 0, var(--paper) calc(var(--line) - 1px), var(--rule) calc(var(--line) - 1px), var(--rule) var(--line));
+  background-color:var(--paper);
+  color:var(--deep);
+  font-family:"Kalam",Georgia,cursive;
+  font-size:1.08rem;
+  line-height:var(--line);
+  padding:0.62rem 1.15rem 1.6rem var(--gutter);
+  min-height:24rem;
+  box-shadow:
+    0 10px 22px rgba(60,35,15,.28),
+    0 1px 0 rgba(255,255,255,.4) inset,
+    0 0 0 1px rgba(90,60,30,.18);
+  border-radius:1px 2px 2px 1px;
+  /* worn edge */
+  filter:url(#none);
+}
+.exercise-book::before{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(80% 40% at 10% 0%, rgba(80,50,20,.08), transparent 50%),
+    radial-gradient(60% 30% at 100% 100%, rgba(80,50,20,.10), transparent 55%),
+    radial-gradient(20% 12% at 8% 92%, rgba(70,45,20,.12), transparent 70%);
+  box-shadow:inset 0 0 40px rgba(90,60,30,.08);
+}
+/* left binding edge */
+.exercise-book::after{
+  content:"";
+  position:absolute;left:10px;top:12px;bottom:12px;width:2px;
+  background:#8a7354;
+  opacity:.55;
+}
+
+.photocopy{
+  position:absolute;
+  right:8px;top:-22px;
+  width:128px;height:88px;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 13px, rgba(60,60,60,.06) 13px, rgba(60,60,60,.06) 14px),
+    linear-gradient(180deg,#e4e0d6 0%, #d4cfc4 100%);
+  color:#2a2a2a;
+  transform:rotate(7.5deg);
+  box-shadow:1px 3px 6px rgba(40,25,10,.28);
+  border:1px solid #b0aaa0;
+  z-index:4;
+  padding:18px 10px 8px 12px;
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:12.5px;
+  line-height:1.3;
+}
+.photocopy .staple{
+  position:absolute;top:7px;left:18px;
+  width:16px;height:8px;
+  border-radius:2px;
+  background:linear-gradient(180deg,#d8d8d8,#8a8a8a 55%,#b8b8b8);
+  box-shadow:0 1px 1px rgba(0,0,0,.35);
+  border:1px solid #6e6e6e;
+}
+.photocopy .pc-kicker{
+  font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:#555;margin:0 0 2px;
+}
+.photocopy .pc-date{font-style:italic;font-size:15px;margin:0}
+
+.ex-heading{
+  font-family:"Kalam",cursive;
+  font-weight:700;
+  font-size:1.12rem;
+  margin:0 0 0;
+  position:relative;
+  z-index:1;
+}
+.ex-exhibit{
+  font-family:"Kalam",cursive;
+  font-size:1.02rem;
+  margin:0 0 .15rem;
+  position:relative;z-index:1;
+}
+.ex-meta{
+  display:flex;justify-content:space-between;gap:1rem;
+  font-family:"Kalam",cursive;
+  font-size:1.08rem;
+  margin:0 0 .15rem;
+  border-bottom:1px solid transparent;
+  position:relative;z-index:1;
+}
+.exercise-book p{
+  margin:0;
+  position:relative;
+  z-index:1;
+}
+.act-quote{
+  text-decoration:underline;
+  text-decoration-color:var(--red);
+  text-decoration-thickness:2px;
+  text-underline-offset:3px;
+}
+
+/* Teacher red pen */
+.red{
+  font-family:"Patrick Hand",cursive;
+  color:var(--red);
+  font-size:1.02rem;
+  line-height:1.25;
+  position:relative;
+  z-index:2;
+}
+.red.margin-note{
+  display:block;
+  margin:0 0 var(--line);
+  max-width:100%;
+  transform:rotate(-0.8deg);
+  line-height:var(--line);
+}
+.red.inline-tick{
+  display:inline-block;
+  font-family:"Permanent Marker",cursive;
+  font-size:1.15rem;
+  transform:rotate(-8deg);
+  margin:0 .25rem 0 .15rem;
+  vertical-align:middle;
+}
+.red.tick-comment{
+  display:inline;
+  font-size:.98rem;
+  transform:none;
+}
+.red.arrow-note{
+  display:block;
+  margin:0 0 calc(var(--line) * .25);
+  transform:rotate(-1.2deg);
+  line-height:var(--line);
+}
+.red.arrow-note .arrow{
+  font-family:"Permanent Marker",cursive;
+  font-size:1.2rem;
+  display:inline-block;
+  transform:rotate(-12deg);
+  margin-right:.25rem;
+  vertical-align:middle;
+}
+.and-wrap{
+  display:flex;
+  align-items:flex-start;
+  gap:0;
+  margin-left:0;
+}
+.red.and{
+  font-family:"Patrick Hand",cursive;
+  font-size:1.12rem;
+  transform:rotate(-8deg);
+  margin-left:calc(0px - var(--gutter) + 0.25rem);
+  width:calc(var(--gutter) - 0.6rem);
+  flex:none;
+  text-align:center;
+  padding-top:0;
+  line-height:var(--line);
+}
+.last-line{flex:1;margin:0}
+
+/* Continue cue on page 1 of the book render only */
+.cont-mark{display:none}
+
+body.book-page.page-1 .exercise-book{min-height:860px;padding-top:0.85rem}
+body.book-page.page-2 .exercise-book{min-height:1020px;padding-top:0.62rem}
+body.book-page.page-1 .book-only-later,
+body.book-page.page-2 .book-only-first{display:none}
+
+/* app layout — used when this sheet is loaded in the Mabo case app */
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.plain-fallback{margin:1.2rem 0 2rem;padding:.6rem 1rem;background:#f7f1e4;border:1px solid #d6c5ae;border-radius:8px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.98rem;line-height:1.55;color:#3d332d}
+.plain-fallback summary{cursor:pointer;font-weight:700;color:#4a2e1b}
+.plain-fallback .plain-body{margin-top:.8rem}
+.plain-fallback .teacher{color:#8b3a1e}
+body:not(.book-page) .scene{
+  font-size:clamp(1.05rem, 2.8vw, 1.25rem);
+  max-width:40rem;
+  margin:0 auto 1rem;
+  padding:0 .2rem;
+}
+body:not(.book-page) .exercise-book{
+  font-size:1.12rem;
+  min-height:28rem;
+  margin:0 0 1.2rem;
+  padding-top:0.7rem;
+}
+body.easy-read .exercise-book{
+  font-size:1.3rem;
+  --line:2.05rem;
+  padding-top:0.85rem;
+}
+body.easy-read .exercise-book .red{font-size:1.12rem}
+@media (max-width:520px){
+  :root{--gutter:3.15rem;--line:1.68rem}
+  body:not(.book-page) .exercise-book{font-size:1.05rem;padding-right:.85rem}
+  .photocopy{width:96px;height:70px;right:2px;top:-28px}
+  body:not(.book-page) .ex-heading,
+  body:not(.book-page) .ex-exhibit{padding-right:6.4rem}
+  .red.and{font-size:1rem}
+}
+@media print{
+  .plain-fallback{border:1px solid #000}
+  .exercise-book{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
