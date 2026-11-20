@@ -1,6 +1,6 @@
 # Mabo case (draft)
 
-Interactive companion for *Reopen the Record* Case 13, Year 10.
+Interactive companion for *Reopen the Record*, Year 10.
 
 Planned URL (not published): https://robmac10.github.io/mabo-case/
 
