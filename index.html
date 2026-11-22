@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="assets/style.css">
 <link rel="stylesheet" href="assets/notebook.css">
 
+  <link rel="stylesheet" href="assets/image-fit.css">
+  <link rel="stylesheet" href="assets/place-time.css">
 <style id="imagined-badge-css">
 .imagined-badge{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .55rem;box-sizing:border-box;max-width:100%;margin:0 0 1rem;padding:.5rem .8rem;border:1.5px dashed rgba(60,50,40,.55);border-radius:12px;background:rgba(255,252,244,.92);color:#3d342b;font-family:inherit;line-height:1.35}
 .imagined-badge .ib-icon{flex:0 0 auto;width:22px;height:22px}
@@ -129,9 +131,25 @@
     <h3>Ask three witnesses</h3>
     <p>Each card uses recorded words. Ask the same three questions of each witness.</p>
 
-    <article class="witness" id="w-mabo">
+    
+
+    <section class="place-time" data-place-time="mabo" aria-label="Place and time">
+      <h3>Place and time</h3>
+      <p class="pt-lead"></p>
+      <div class="pt-mapcard"></div>
+      <p class="pt-maplbl" aria-live="polite"></p>
+      <div class="pt-ctl">
+        <button type="button" class="pt-play">▶ Play</button>
+        <input type="range" min="0" max="1" value="0">
+      </div>
+      <ol class="pt-tl" aria-label="Timeline of places and dates in this file"></ol>
+    </section>
+
+<article class="witness" id="w-mabo">
       <figure>
+        <button type="button" class="portrait-zoom" aria-label="Enlarge. A plain silhouette labelled Eddie Koiki Mabo, not a likeness.">
         <img src="assets/silhouettes/mabo.jpg" alt="A plain silhouette labelled Eddie Koiki Mabo, not a likeness.">
+        </button>
         <figcaption>A silhouette, not a likeness. No photograph of Eddie Koiki Mabo is used here. The pictures that exist are not clearly free to reuse, and this file uses a silhouette, not a likeness.</figcaption>
       </figure>
       <div>
@@ -153,7 +171,9 @@
 
     <article class="witness" id="w-brennan">
       <figure>
+        <button type="button" class="portrait-zoom" aria-label="Enlarge. A plain silhouette labelled Justice Brennan, not a likeness.">
         <img src="assets/silhouettes/brennan.jpg" alt="A plain silhouette labelled Justice Brennan, not a likeness.">
+        </button>
         <figcaption>A silhouette, not a likeness. Official judicial portraits remain in copyright.</figcaption>
       </figure>
       <div>
@@ -175,7 +195,9 @@
 
     <article class="witness" id="w-qld">
       <figure>
+        <button type="button" class="portrait-zoom" aria-label="Enlarge. A plain document mark labelled The State of Queensland, not a likeness of any person.">
         <img src="assets/silhouettes/queensland.jpg" alt="A plain document mark labelled The State of Queensland, not a likeness of any person.">
+        </button>
         <figcaption>A document mark, not a likeness. The witness is the State of Queensland, speaking through a 1985 Act of Parliament.</figcaption>
       </figure>
       <div>
@@ -329,6 +351,18 @@
   <p>Reopen the Record: Australian Histories</p>
   <p class="note">This investigation acknowledges the Meriam people of Mer, and the Mabo family. Real recorded words are used. No likeness has been invented. Search engines are asked not to index this app. If something here should be corrected, please tell the teacher who shared this investigation, so the file can be updated.</p>
 </footer>
+
+<div id="portrait-lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="portrait-lightbox-title">
+  <p id="portrait-lightbox-title" class="visually-hidden">Magnified image</p>
+  <button type="button" class="lightbox-close" aria-label="Close the magnified image">&times;</button>
+  <div class="lightbox-stage">
+    <img src="" alt="">
+  </div>
+  <p class="lightbox-hint">Pinch or scroll to zoom. Tap outside, or press Escape, to close.</p>
+</div>
+
 <script src="assets/app.js"></script>
+<script src="assets/place-time.js"></script>
+
 </body>
 </html>
