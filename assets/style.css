@@ -273,3 +273,7 @@ body.lightbox-open{overflow:hidden}
 
 .witness figure img{width:100%;height:auto;max-height:16rem;object-fit:cover;object-position:top center;border-radius:8px}
 .witness figure{max-width:14rem}
+
+/* Short Book One link, in place of the old Deep Time tab. */
+.book-one-link{margin:.85rem auto 1.1rem;max-width:36rem;font-size:1.05rem;line-height:1.55;color:#3d332d}
+.book-one-link a{color:#7c2938;text-underline-offset:4px}
